@@ -6,6 +6,8 @@ Created on Thu Jul 21 22:26:52 2022
 """
 
 def plus (x,y=2):
+    if y ==2:
+        print('true')
     return x+y
 
 x=1
