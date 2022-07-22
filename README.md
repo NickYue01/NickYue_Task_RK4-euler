@@ -1,6 +1,9 @@
 # Ziqi_Yue_Reassessment
 ### Environment
 these programs are running on Spyder (python 3.8)  
+System: Windows 10
+CPU: AMD
+System chosen: China, using beta unicode UTF-8
 
 ### Information of the Files
 -file odesolve.py stores the functions of arithmetics, like euler, rk4, solveto_ ......   
