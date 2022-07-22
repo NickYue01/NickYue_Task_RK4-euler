@@ -1,7 +1,7 @@
 # odesolve.py
 #
-# Author: <insert name>
-# Date:   <insert date>
+# Author: <Ziqi Yue>
+# Date:   <20220721>
 # Description: <insert description>
 #
 # You should fill out the code for the functions below so that they pass the
@@ -9,7 +9,7 @@
 
 def euler(f, x, t, h):
     """Perform one step of the Euler method"""
-    return x + f (x , t )*h
+    return x + (f (x , t ))*h
     pass
 
 
@@ -23,11 +23,32 @@ def rk4(f, x, t, h):
     pass
 
 
-def solveto(f, x1, t1, t2, hmax, method=euler):
-    
-        
-    
+def solveto(f, x1, t1, t2, hmax, method=euler):         
     """Use many steps of method to get from x1,t1 to x2,t2"""
+    
+    the_loop = int((t2-t1)//hmax)
+    reminder = t2 - t1 - the_loop*hmax
+    
+    x0 = x1
+    t_middle = t1
+    for i in range (0,the_loop):                   
+        if method == rk4:
+            x2 = rk4 ( f , x0 , t_middle , hmax)
+        else:
+            x2 = euler ( f , x0 , t_middle , hmax)
+        x0 = x2
+        #print(t_middle)
+        t_middle += hmax
+        t_middle = round(t_middle,8)
+    
+    if reminder != 0:              
+        if method == rk4:
+            x2 = rk4 ( f , x0 , t2 , reminder)
+        else:
+            x2 = euler ( f , x0 , t2 , reminder)
+ 
+    
+    return x2
     pass
 
 
