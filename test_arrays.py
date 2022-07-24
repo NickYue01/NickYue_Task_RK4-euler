@@ -21,4 +21,5 @@ X0 = np.array ( [ x0 , y0 ] )
 h = 0.5
 t1 = 1
 X1 = solveto ( f , X0 , t0 , t1 , h)
+
 print (X1)
