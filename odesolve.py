@@ -31,6 +31,9 @@ def solveto(f, x1, t1, t2, hmax, method=euler):
     
     x0 = x1
     t_middle = t1
+    if the_loop == 0:
+        x2 = x1
+        
     for i in range (0,the_loop):                   
         if method == rk4:
             x2 = rk4 ( f , x0 , t_middle , hmax)
@@ -46,12 +49,27 @@ def solveto(f, x1, t1, t2, hmax, method=euler):
             x2 = rk4 ( f , x0 , t2 , reminder)
         else:
             x2 = euler ( f , x0 , t2 , reminder)
- 
-    
+     
     return x2
     pass
 
 
 def odesolve(f, X0, t, hmax, method=euler):
+    import numpy as np
     """Compute the solution at different values of t"""
+    t0 = t[0]
+    tmax = t[-1]
+    xt =[]
+    
+    try:
+        X0 = X0[0]
+    except:
+        None
+        
+    for i in t:
+        my_x = solveto(f,X0,t0,i,hmax,method)
+        xt.append(my_x)
+    xt = np.array(xt)    
+    return xt
     pass
+   
