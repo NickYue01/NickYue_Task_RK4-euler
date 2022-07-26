@@ -45,7 +45,7 @@ def test_solveto():
     xtrue = -11
     for h in [0.1, 0.01, 0.001, 0.003, 1e-5]:
         xguess = solveto(f, -2, 1, 10, h)
-        #assert abs(xguess - xtrue) < 1e-10 / h**0.5
+        assert abs(xguess - xtrue) < 1e-10 / h**0.5
 
 
 def isclose(x1, x2):
