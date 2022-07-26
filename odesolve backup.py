@@ -26,7 +26,7 @@ def rk4(f, x, t, h):
 def solveto(f, x1, t1, t2, hmax, method=euler):         
     """Use many steps of method to get from x1,t1 to x2,t2"""
     
-    the_loop = int((t2-t1)//hmax)
+    the_loop = int(round((t2-t1)/hmax))
     reminder = t2 - t1 - the_loop*hmax
     
     x0 = x1
@@ -68,10 +68,8 @@ def odesolve(f, X0, t, hmax, method=euler):
         my_x = solveto(f,X0,t0,i,hmax,method)
         xt.append(my_x)
     xt = np.array(xt)
-    #plt.plot( t,xt.T)
-    #plt.plot(t,xt.T[1])
-    #plt.savefig('shm.pdf')
-    plt.show()    
+
+  
     return xt
     pass
 
