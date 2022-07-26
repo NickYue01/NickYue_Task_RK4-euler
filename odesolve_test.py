@@ -23,7 +23,8 @@ h = 0.01 # max step size
 t = np.linspace(0,10,100) # times to plot the solution
 Xt = odesolve(f,X0,t,h)
 #Use .T to transpose the array
-plt.plot( t,Xt.T)
+plt.plot( t,Xt.T[0])
+plt.plot(t,Xt.T[1])
 plt.savefig('shm.pdf')
 plt.show()
 #print(t)
